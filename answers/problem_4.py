@@ -1,11 +1,4 @@
-def is_palindrome(number: int):
-    num_str = str(number)
-
-    for index in range(int(len(num_str) / 2)):
-        if num_str[index] != num_str[-index - 1]:
-            return False
-
-    return True
+from utils import is_palindrome
 
 
 def main():
