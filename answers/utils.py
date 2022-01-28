@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 
 def is_palindrome(number: int):
@@ -66,3 +67,31 @@ def find_all_prime_factors(num: int) -> list:
             prime_factor = find_next_prime_number(prime_factor)
 
     return factors
+
+
+def get_factors_of_all_numbers_less_than(num: int) -> dict:
+    """
+    Creates number to factors dict of all numbers less then 'num'
+    :param num:
+    :return:
+    """
+    factor_mat = [[] for index in range(0, num + 1)]
+
+    # adds factors to the proper products
+    for curr_factor in range(1, num + 1):
+        products = range(curr_factor, num + 1, curr_factor)
+
+        # Adds index into each products' factor list (instead of the index product)
+        for product in products[1:]:
+            factor_mat[product].append(curr_factor)
+
+    product_to_factors = {}
+    # adds factors to the matrix
+    for product in range(1, num + 1):
+        product_to_factors[product] = factor_mat[product]
+
+    return product_to_factors
+
+
+# if __name__ == "__main__":
+#     get_factors_of_less_than(10000)
