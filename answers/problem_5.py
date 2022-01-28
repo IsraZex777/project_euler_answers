@@ -18,7 +18,7 @@ def answer_1():
                     prime_to_max_amount[prime] < amount:
                 prime_to_max_amount[prime] = amount
 
-    # The answer equals to the factor of all the prime factors found
+    # The answer equals to the product of all the prime factors found
     answer = 1
     for prime, amount in prime_to_max_amount.items():
         answer *= math.pow(prime, amount)
